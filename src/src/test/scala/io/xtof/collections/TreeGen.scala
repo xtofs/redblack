@@ -4,26 +4,6 @@ import org.scalacheck.Gen.{listOfN, sized}
 import org.scalacheck.{Arbitrary, Gen}
 
 object TreeGen {
-
-
-//  // http://booksites.artima.com/scalacheck/examples/html/ch06.html
-//  def genTree[T](genT: Gen[T]): Gen[Tree[T]] = lzy {
-//    oneOf(genEmpty(genT), genNode(genT))
-//  }
-//
-//  def genEmpty[T](genT: Gen[T]): Gen[Tree[T]] =
-//    Gen.const( Empty)
-//
-//  def genNode[T](genT: Gen[T]): Gen[Node[T]] =
-//    sized { size =>
-//      for {
-//        col <- Gen.oneOf(Red, Black)
-//        a <- genTree(genT)
-//        x <- genT
-//        b <- genTree(genT)
-//      } yield Node(col, a, x, b)
-//    }
-
   import Tree._
 
   def genTree[T: Ordering](genT: Gen[T]): Gen[Tree[T]] =
